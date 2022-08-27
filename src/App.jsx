@@ -6,4 +6,6 @@ function App() {
   );
 }
 
+// '/' => component A
+// '/contact' => component B
 export default App;
