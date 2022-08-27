@@ -3,15 +3,22 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 import Products from "./pages/Products";
 
+const Routes = { "/welcome": Welcome, "/products": Products };
+
 function App() {
   return (
     <BrowserRouter>
-      <Route path="/welcome">
+      {Object.entries(Routes).map(([route, component]) => (
+        <Route key={route} path={route}>
+          {component()}
+        </Route>
+      ))}
+      {/* <Route path="/welcome">
         <Welcome />
       </Route>
       <Route path="/products">
         <Products />
-      </Route>
+      </Route> */}
     </BrowserRouter>
   );
 }
