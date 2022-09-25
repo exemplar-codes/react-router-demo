@@ -1,12 +1,12 @@
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Route path="/" exact>
-        <Redirect to="/login" />
+      <Route path="/products">
+        <h1>Products page</h1>
       </Route>
-      <Route path="/login">Login page</Route>
+      <Route path="/products/:id">Specific Product</Route>
     </div>
   );
 }
