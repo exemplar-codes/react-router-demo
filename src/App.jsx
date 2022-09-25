@@ -1,14 +1,16 @@
-import { Route } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Route path="/alice">
-        <h1>Alice rendered</h1>
-      </Route>
-      <Route path="/alice/bob">
-        <h1>Alice/Bob rendered</h1>
-      </Route>
+      <Switch>
+        <Route path="/alice">
+          <h1>Alice</h1>
+        </Route>
+        <Route path="/alice/bob">
+          <h1>Alice/Bob</h1>
+        </Route>
+      </Switch>
     </div>
   );
 }
