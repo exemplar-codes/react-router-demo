@@ -1,16 +1,15 @@
-import { Link, Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Switch>
-        <Route path="/alice">
-          <h1>Alice</h1>
-        </Route>
+      <Route path="/alice">
+        <h1>Alice</h1>
         <Route path="/alice/bob">
+          {/* <!-- will be rendered on URL /alice/bob --> */}
           <h1>Alice/Bob</h1>
         </Route>
-      </Switch>
+      </Route>
     </div>
   );
 }
