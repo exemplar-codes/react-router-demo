@@ -1,12 +1,16 @@
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
-// URI: ?age=2
 export default function App() {
+  const history = useHistory();
   const location = useLocation();
 
-  const qparams = new URLSearchParams(location.search);
+  const onClickHandler = () => {
+    const qParamBuilder = new URLSearchParams();
+    qParamBuilder.set("avatarEmoji", "😼");
 
-  const age = qparams.get("age");
+    const updatedURL = location.pathname + "?" + qParamBuilder.toString();
+    history.push(updatedURL);
+  };
 
-  return <h1>Age: {age}</h1>;
+  return <button onClick={onClickHandler}>Sort asc</button>; // clicking will add '?sort=asc' to the URL
 }
