@@ -1,5 +1,12 @@
-function App() {
-  return <h1>Hello</h1>;
-}
+import { useLocation } from "react-router-dom";
 
-export default App;
+// URI: ?age=2
+export default function App() {
+  const location = useLocation();
+
+  const qparams = new URLSearchParams(location.search);
+
+  const age = qparams.get("age");
+
+  return <h1>Age: {age}</h1>;
+}
