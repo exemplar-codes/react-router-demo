@@ -1,16 +1,17 @@
-import { useHistory, useLocation } from "react-router-dom";
+import { Route, useRouteMatch } from "react-router-dom";
 
-export default function App() {
-  const history = useHistory();
-  const location = useLocation();
-
-  const onClickHandler = () => {
-    const qParamBuilder = new URLSearchParams();
-    qParamBuilder.set("avatarEmoji", "😼");
-
-    const updatedURL = location.pathname + "?" + qParamBuilder.toString();
-    history.push(updatedURL);
-  };
-
-  return <button onClick={onClickHandler}>Sort asc</button>; // clicking will add '?sort=asc' to the URL
+function App() {
+  return (
+    <Route path="/welcome">
+      <Child />
+    </Route>
+  );
 }
+
+function Child() {
+  const match = useRouteMatch();
+
+  return <h1>Previous route: {match.url}</h1>;
+}
+
+export default App;
